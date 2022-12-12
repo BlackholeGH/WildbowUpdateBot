@@ -1,0 +1,30 @@
+﻿<Window x:Class="WildbowUpdateBot.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WildbowUpdateBot"
+        mc:Ignorable="d"
+        Title="Blackhole's Wildbow Serial Update Monitor - About" Height="300" Width="800"
+        Closed="Window_Closed">
+    <Grid>
+        <StackPanel VerticalAlignment="Center" Margin="10">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="5" TextWrapping="Wrap" TextAlignment="Center">
+            Wildbow Web Serial Update Monitor
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" Width="600" VerticalAlignment="Center" FontSize="12" TextAlignment="Center" Margin="5" TextWrapping="Wrap">
+            Developed by Blackhole (Julie) to track the latest updates of Wildbow (John C. McCrae)'s web serials.
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" Width="600" VerticalAlignment="Center" FontSize="10" TextAlignment="Center" Margin="2" TextWrapping="Wrap">
+                <Italic>(The program can monitor most other WordPress blogs too, and will attempt to run on any arbitrary html address, but this may result in unintended behaviour and notification formatting. Use in this manner at your own risk.)</Italic>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" TextAlignment="Center" Margin="5" TextWrapping="Wrap">
+             Find Wildbow at:<LineBreak /><Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://www.parahumans.net">parahumans.net</Hyperlink><LineBreak /><Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://palewebserial.wordpress.com">palewebserial.wordpress.com</Hyperlink>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" TextAlignment="Center" Margin="5" TextWrapping="Wrap">
+            Find Blackhole at:<LineBreak /><Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://github.com/BlackholeGH">My GitHub</Hyperlink><LineBreak /><Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://twitter.com/BlackholeTI">My Twitter</Hyperlink>
+            </TextBlock>
+            <Button Click="OpenSettings_Click" Margin="5" Width="100">Open Settings</Button>
+        </StackPanel>
+    </Grid>
+</Window>

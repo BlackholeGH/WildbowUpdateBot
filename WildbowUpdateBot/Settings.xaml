@@ -1,0 +1,67 @@
+﻿<Window x:Class="WildbowUpdateBot.Settings"
+        x:Name="_this"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WildbowUpdateBot" xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+        mc:Ignorable="d"
+        Title="Blackhole's Wildbow Serial Update Monitor - Settings" Height="350" Width="800"
+        DataContext="{Binding ElementName=_this}"
+        Closing="Window_Closing">
+    <Window.Resources>
+
+    </Window.Resources>
+    <!--    <Window.WindowStyle>
+        
+    </Window.WindowStyle>-->
+    <Grid>
+        <StackPanel VerticalAlignment="Top" Margin="10">
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Margin="10">
+                 Wildbow Update Monitor Settings
+            </TextBlock>
+            <Label Target="{Binding ElementName=serialURI}" Margin="5">
+                <Bold>Web serial URL to monitor:</Bold>
+            </Label>
+            <TextBox Name="serialURI" Text="{DynamicResource CurrentSerialURI}" TextChanged="serialURI_TextChanged" />
+            <Label Target="{Binding ElementName=timeInterval}" Margin="5">
+                <Bold>Poll interval (minutes):</Bold>
+            </Label>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Name="timeInterval" DataContext="{DynamicResource CurrentTimeInterval}" Text="{Binding Path=.}" Width="60" TextChanged="timeInterval_TextChanged" />
+                <Separator Width="20" Background="Transparent"/>
+                <Slider Minimum="1" Maximum="1440" DataContext="{DynamicResource CurrentTimeInterval}" Value="{Binding Path=.}" TickPlacement="BottomRight" TickFrequency="30" Width="400" ValueChanged="TimeIntervalSlider_ValueChanged" />
+            </StackPanel>
+            <Label Name="DynamicWarning" Foreground="Red" Content="Time interval must be a valid positive integer.">
+                <Label.Style>
+                    <Style TargetType="Label">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ValidInterval}" Value="true">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding ValidInterval}" Value="false">
+                                <Setter Property="Visibility" Value="Visible" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+            <Label Target="{Binding ElementName=volume}" Margin="5">
+                <Bold>Alert volume (%):</Bold>
+            </Label>
+            <StackPanel Orientation="Horizontal">
+                <Label Name="alertVol" DataContext="{DynamicResource AlertVolume}" Content="{Binding Path=.}" Width="60" />
+                <Separator Width="20" Background="Transparent"/>
+                <Slider Minimum="0" Maximum="100" DataContext="{DynamicResource AlertVolume}" Value="{Binding Path=.}" TickPlacement="BottomRight" TickFrequency="5" Width="400" ValueChanged="AlertVolumeSlider_ValueChanged" />
+            </StackPanel>
+            <CheckBox Name="cbEnableAutorun" IsChecked="{DynamicResource AutostartApp}" Checked="cbEnableAutorun_CheckedChanged" Unchecked="cbEnableAutorun_CheckedChanged" Margin="10">Enable run on startup</CheckBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
+                <Button Click="TestNotif_Click" Margin="5" Width="100">Test Notification</Button>
+                <Button Click="OpenAbout_Click" Margin="5" Width="100">About</Button>
+                <Button Click="Minimize_Click" Margin="5" Width="100">Minimize to Tray</Button>
+                <Button Click="Quit_Click" Margin="5" Width="100">Quit Notifier</Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
